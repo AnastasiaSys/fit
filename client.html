@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клиентская панель - FitnessCRM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/client.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Контейнер клиентской панели -->
+    <div class="client-dashboard">
+        <!-- Боковая панель навигации -->
+        <aside class="client-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-dumbbell"></i>
+                    <h2>Fitness<span>CRM</span></h2>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <img src="C:\Users\anast\Downloads\я.jpg" alt="Аватар">
+                    </div>
+                    <div class="user-details">
+                        <h3 id="userName">Анастасия Сыс</h3>
+                        <p class="user-role">Клиент</p>    
+                        <p class="user-membership">Премиум</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="#home" class="nav-link active" data-page="home">
+                            <i class="fas fa-home"></i>
+                            <span>Главная</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#schedule" class="nav-link" data-page="schedule">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Расписание</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#trainers" class="nav-link" data-page="trainers">
+                            <i class="fas fa-users"></i>
+                            <span>Тренеры</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#my-workouts" class="nav-link" data-page="my-workouts">
+                            <i class="fas fa-dumbbell"></i>
+                            <span>Мои тренировки</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#bookings" class="nav-link" data-page="bookings">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>Мои записи</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#membership" class="nav-link" data-page="membership">
+                            <i class="fas fa-id-card"></i>
+                            <span>Абонемент</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#profile" class="nav-link" data-page="profile">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Профиль</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Выйти</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="client-main">
+            <!-- Верхняя панель -->
+            <header class="top-bar">
+                <div class="page-title">
+                    <h1 id="pageTitle">Главная панель</h1>
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <span class="breadcrumb-item active">Главная</span>
+                    </div>
+                </div>
+                
+                <div class="top-bar-actions">
+                 
+                    <div class="quick-actions">
+                        <button class="btn btn-primary btn-sm" id="quickBookBtn">
+                            <i class="fas fa-plus"></i> Быстрая запись
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Контейнер страниц -->
+            <div class="pages-container">
+                <!-- Страница 1: Главная -->
+                <div id="home-page" class="page active">
+                    <div class="welcome-section">
+                        <div class="welcome-content">
+                            <h2>Добро пожаловать, <span id="welcomeName">Иван</span>!</h2>
+                            <p>Ваш следующий визит запланирован на <strong>завтра в 10:00</strong></p>
+                            <div class="welcome-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <div>
+                                        <span class="stat-value">8</span>
+                                        <span class="stat-label">посещений в этом месяце</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-fire"></i>
+                                    <div>
+                                        <span class="stat-value">12</span>
+                                        <span class="stat-label">дней подряд</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-trophy"></i>
+                                    <div>
+                                        <span class="stat-value">3</span>
+                                        <span class="stat-label">достижения</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="welcome-image">
+                            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Тренировка">
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Ближайшие занятия -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-clock"></i> Ближайшие занятия</h3>
+                                <a href="#schedule" class="view-all" data-page="schedule">Все расписание →</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="upcoming-workouts" id="upcomingWorkouts">
+                                    <!-- Занятия будут загружены через JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Мои тренеры -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-user-tie"></i> Мои тренеры</h3>
+                                <a href="#trainers" class="view-all" data-page="trainers">Все тренеры →</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="my-trainers" id="myTrainers">
+                                    <!-- Тренеры будут загружены через JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Статистика -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-chart-line"></i> Статистика</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="stats-grid">
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-dumbbell"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <span class="stat-number">24</span>
+                                            <span class="stat-label">Всего тренировок</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <span class="stat-number">4.8</span>
+                                            <span class="stat-label">Средняя оценка</span>
+                                        </div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-burn"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <span class="stat-number">15,400</span>
+                                            <span class="stat-label">ккал сожжено</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Быстрые действия -->
+                        <div class="dashboard-card quick-actions-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-bolt"></i> Быстрые действия</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary action-btn" data-page="schedule">
+                                        <i class="fas fa-calendar-plus"></i>
+                                        <span>Записаться на занятие</span>
+                                    </button>
+                                    <button class="btn btn-secondary action-btn" data-page="my-workouts">
+                                        <i class="fas fa-dumbbell"></i>
+                                        <span>Мои тренировки</span>
+                                    </button>
+                                    <button class="btn btn-secondary action-btn" data-page="bookings">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <span>Мои записи</span>
+                                    </button>
+                                    <button class="btn btn-secondary action-btn" data-page="membership">
+                                        <i class="fas fa-credit-card"></i>
+                                        <span>Продлить абонемент</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 2: Расписание -->
+                <div id="schedule-page" class="page">
+                    <div class="page-header">
+                        <h2>Расписание занятий</h2>
+                        <div class="header-controls">
+                            <div class="date-picker">
+                                <input type="date" id="scheduleDate" value="2025-11-15">
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="all">Все</button>
+                                <button class="filter-btn" data-filter="yoga">Йога</button>
+                                <button class="filter-btn" data-filter="fitness">Фитнес</button>
+                                <button class="filter-btn" data-filter="cardio">Кардио</button>
+                                <button class="filter-btn" data-filter="strength">Силовые</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-container">
+                        <div class="schedule-view" id="scheduleView">
+                            <!-- Расписание будет загружено через JS -->
+                        </div>
+                    </div>
+
+                    <div class="schedule-stats">
+                        <div class="stats-summary">
+                            <div class="stat-item">
+                                <span class="stat-value" id="totalWorkouts">15</span>
+                                <span class="stat-label">Занятий сегодня</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="availableSlots">42</span>
+                                <span class="stat-label">Свободных мест</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="popularWorkout">Йога</span>
+                                <span class="stat-label">Самое популярное</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 3: Тренеры -->
+                <div id="trainers-page" class="page">
+                    <div class="page-header">
+                        <h2>Наши тренеры</h2>
+                        <div class="header-controls">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="trainerSearch" placeholder="Поиск тренера...">
+                            </div>
+                            <div class="filter-tags">
+                                <button class="tag-btn active" data-tag="all">Все</button>
+                                <button class="tag-btn" data-tag="yoga">Йога</button>
+                                <button class="tag-btn" data-tag="fitness">Фитнес</button>
+                                <button class="tag-btn" data-tag="cardio">Кардио</button>
+                                <button class="tag-btn" data-tag="strength">Силовые</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trainers-grid" id="trainersGrid">
+                        <!-- Тренеры будут загружены через JS -->
+                    </div>
+
+                    <div class="recommendations">
+                        <h3>Рекомендации для вас</h3>
+                        <div class="recommendation-card">
+                            <div class="recommendation-content">
+                                <h4>На основе вашей активности рекомендуем:</h4>
+                                <div class="recommendation-list" id="recommendationList">
+                                    <!-- Рекомендации будут загружены через JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 4: Мои тренировки -->
+                <div id="my-workouts-page" class="page">
+                    <div class="page-header">
+                        <h2>Мои тренировки</h2>
+                        <div class="header-controls">
+                            <div class="workout-tabs">
+                                <button class="workout-tab active" data-tab="current">Текущие</button>
+                                <button class="workout-tab" data-tab="completed">Завершенные</button>
+                                <button class="workout-tab" data-tab="favorites">Избранные</button>
+                            </div>
+                            <button class="btn btn-primary" id="createWorkoutPlan">
+                                <i class="fas fa-plus"></i> Создать план
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="workout-plans">
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3>Мой план тренировок</h3>
+                                <span class="plan-status active">Активен</span>
+                            </div>
+                            <div class="plan-progress">
+                                <div class="progress-info">
+                                    <span>Прогресс выполнения:</span>
+                                    <span class="progress-value">65%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="plan-schedule" id="planSchedule">
+                                <!-- Расписание плана будет загружено через JS -->
+                            </div>
+                        </div>
+
+                        <div class="workout-history">
+                            <h3>История тренировок</h3>
+                            <div class="history-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Дата</th>
+                                            <th>Занятие</th>
+                                            <th>Тренер</th>
+                                            <th>Длительность</th>
+                                            <th>Оценка</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="workoutHistory">
+                                        <!-- История будет загружена через JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 5: Мои записи -->
+                <div id="bookings-page" class="page">
+                    <div class="page-header">
+                        <h2>Мои записи</h2>
+                        <div class="header-controls">
+                            <div class="booking-tabs">
+                                <button class="booking-tab active" data-status="upcoming">Предстоящие</button>
+                                <button class="booking-tab" data-status="completed">Завершенные</button>
+                                <button class="booking-tab" data-status="cancelled">Отмененные</button>
+                            </div>
+                            <button class="btn btn-primary" id="newBookingBtn">
+                                <i class="fas fa-plus"></i> Новая запись
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bookings-container">
+                        <div class="bookings-list" id="bookingsList">
+                            <!-- Записи будут загружены через JS -->
+                        </div>
+
+                        <div class="bookings-stats">
+                            <div class="stats-card">
+                                <h3>Статистика записей</h3>
+                                <div class="stats-content">
+                                    <div class="stat-item">
+                                        <span class="stat-number">24</span>
+                                        <span class="stat-label">Всего записей</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">92%</span>
+                                        <span class="stat-label">Посещаемость</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">4.7</span>
+                                        <span class="stat-label">Средняя оценка</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 6: Абонемент -->
+                <div id="membership-page" class="page">
+                    <div class="page-header">
+                        <h2>Мой абонемент</h2>
+                        <div class="header-controls">
+                            <button class="btn btn-primary" id="renewMembership">
+                                <i class="fas fa-sync-alt"></i> Продлить
+                            </button>
+                            <button class="btn btn-secondary" id="upgradeMembership">
+                                <i class="fas fa-arrow-up"></i> Улучшить
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="membership-container">
+                        <div class="current-membership-card">
+                            <div class="membership-header">
+                                <h3>Текущий абонемент</h3>
+                                <span class="membership-badge premium">Премиум</span>
+                            </div>
+                            <div class="membership-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Тип:</span>
+                                    <span class="detail-value">Безлимитный</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Действует до:</span>
+                                    <span class="detail-value">20.12.2025</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Осталось посещений:</span>
+                                    <span class="detail-value">∞</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Стоимость:</span>
+                                    <span class="detail-value">12,000 ₽/месяц</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="membership-usage">
+                            <h3>Использование в этом месяце</h3>
+                            <div class="usage-stats">
+                                <div class="usage-item">
+                                    <span class="usage-label">Посещений:</span>
+                                    <span class="usage-value">8/∞</span>
+                                </div>
+                                <div class="usage-item">
+                                    <span class="usage-label">Средняя частота:</span>
+                                    <span class="usage-value">3 раза/неделю</span>
+                                </div>
+                            </div>
+                            <div class="usage-chart">
+                                <!-- График использования -->
+                            </div>
+                        </div>
+
+                        <div class="available-plans">
+                            <h3>Доступные тарифы</h3>
+                            <div class="plans-grid">
+                                <div class="plan-option">
+                                    <div class="plan-header">
+                                        <h4>Базовый</h4>
+                                        <div class="plan-price">3,500 ₽</div>
+                                    </div>
+                                    <ul class="plan-features">
+                                        <li>8 занятий в месяц</li>
+                                        <li>Групповые занятия</li>
+                                        <li>Базовое оборудование</li>
+                                    </ul>
+                                    <button class="btn btn-secondary">Выбрать</button>
+                                </div>
+                                <div class="plan-option featured">
+                                    <div class="plan-header">
+                                        <h4>Стандарт</h4>
+                                        <div class="plan-price">6,500 ₽</div>
+                                    </div>
+                                    <ul class="plan-features">
+                                        <li>12 занятий в месяц</li>
+                                        <li>Все групповые занятия</li>
+                                        <li>Полный доступ к оборудованию</li>
+                                    </ul>
+                                    <button class="btn btn-primary">Выбрать</button>
+                                </div>
+                                <div class="plan-option">
+                                    <div class="plan-header">
+                                        <h4>Премиум</h4>
+                                        <div class="plan-price">12,000 ₽</div>
+                                    </div>
+                                    <ul class="plan-features">
+                                        <li>Безлимитные занятия</li>
+                                        <li>Все виды занятий</li>
+                                        <li>Персональный тренер</li>
+                                    </ul>
+                                    <button class="btn btn-secondary">Выбрать</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 7: Профиль -->
+                <div id="profile-page" class="page">
+                    <div class="page-header">
+                        <h2>Мой профиль</h2>
+                        <div class="header-controls">
+                            <button class="btn btn-secondary" id="editProfile">
+                                <i class="fas fa-edit"></i> Редактировать
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="profile-container">
+                        <div class="profile-card">
+                            <div class="profile-header">
+                                <div class="profile-avatar">
+                                    <img src="C:\Users\anast\Downloads\я.jpg" alt="Аватар">
+                                </div>
+                                <div class="profile-info">
+                                    <h3>Анастасия Сыс</h3>
+                                    <p class="profile-membership">Премиум клиент</p>
+                                    <div class="profile-stats">
+                                        <span><i class="fas fa-calendar-alt"></i> С нами с сентября 2025</span>
+                                        <span><i class="fas fa-trophy"></i> 24 тренировки</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-details">
+                                <div class="detail-section">
+                                    <h4>Личная информация</h4>
+                                    <div class="detail-grid">
+                                        <div class="detail-item">
+                                            <span class="detail-label">Email:</span>
+                                            <span class="detail-value">asys@sfedu.ru</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Телефон:</span>
+                                            <span class="detail-value">+7 (999) 123-45-67</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span class="detail-label">Дата рождения:</span>
+                                            <span class="detail-value">12.08.2004</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="detail-section">
+                                    <h4>Предпочтения</h4>
+                                    <div class="preferences">
+                                        <div class="preference-tags" id="preferenceTags">
+                                            <!-- Теги предпочтений будут загружены через JS -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-sidebar">
+                            <div class="sidebar-card">
+                                <h3>Настройки уведомлений</h3>
+                                <div class="notification-settings">
+                                    <label class="checkbox">
+                                        <input type="checkbox" checked>
+                                        <span>Напоминания о тренировках</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" checked>
+                                        <span>Новости и акции</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" checked>
+                                        <span>Достижения</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="sidebar-card">
+                                <h3>Достижения</h3>
+                                <div class="achievements-grid">
+                                    <!-- Достижения будут загружены через JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Модальные окна -->
+        <div id="bookingModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Запись на занятие</h2>
+                <form id="bookingForm">
+                    <!-- Форма будет заполнена через JS -->
+                </form>
+            </div>
+        </div>
+
+        <div id="workoutDetailsModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="workoutDetailsContent">
+                    <!-- Детали занятия будут загружены через JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/client.js"></script>
+</body>
+</html>

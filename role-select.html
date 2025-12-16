@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор роли - FitnessCRM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="role-select-container">
+        <div class="role-select-header">
+            <a href="auth.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Назад
+            </a>
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <span>FitnessCRM</span>
+            </div>
+        </div>
+
+        <div class="role-select-content">
+            <h1 id="roleTitle">Выберите вашу роль</h1>
+            <p id="roleDescription" class="role-description">
+                Выберите тип учетной записи для продолжения
+            </p>
+
+            <div class="role-cards">
+                <!-- Клиент -->
+                <div class="role-card" data-role="client">
+                    <div class="role-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Клиент</h3>
+                    <p>Просмотр расписания, запись на занятия, управление своими тренировками</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Запись на занятия</li>
+                        <li><i class="fas fa-check"></i> Просмотр расписания</li>
+                        <li><i class="fas fa-check"></i> История тренировок</li>
+                    </ul>
+                    <button class="btn btn-primary select-role-btn" data-role="client">
+                        <a href="client.html">Выбрать</a>
+                    </button>
+                </div>
+
+                <!-- Тренер -->
+                <div class="role-card" data-role="trainer">
+                    <div class="role-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Тренер</h3>
+                    <p>Управление расписанием, просмотр клиентов, ведение тренировок</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Управление занятиями</li>
+                        <li><i class="fas fa-check"></i> Просмотр клиентов</li>
+                        <li><i class="fas fa-check"></i> Статистика тренировок</li>
+                    </ul>
+                    <button class="btn btn-primary select-role-btn" data-role="trainer">
+                        <a href="trainer.html">Выбрать</a>
+                    </button>
+                </div>
+
+                <!-- Администратор -->
+                <div class="role-card" data-role="admin">
+                    <div class="role-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Администратор</h3>
+                    <p>Полное управление фитнес-центром, аналитика, управление персоналом</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Управление системой</li>
+                        <li><i class="fas fa-check"></i> Аналитика и отчеты</li>
+                        <li><i class="fas fa-check"></i> Управление персоналом</li>
+                    </ul>
+                    <button class="btn btn-primary select-role-btn" data-role="admin">
+                       <a href="admin.html">Выбрать</a>
+                    </button>
+                </div>
+            </div>
+
+            <div class="role-footer">
+                <p>Не уверены в выборе? <a href="C:\Users\anast\OneDrive\Рабочий стол\7 семестр\Проект\index.html">Вернуться на главную</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitnessCRM - Интеллектуальная система управления фитнес-центром</title>
+    <link rel="stylesheet" href="Фитнес-центр/css/style.css">
+    <link rel="stylesheet" href="Фитнкс-центр/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-dumbbell"></i>
+                <span>Fitness<span class="logo-highlight">CRM</span></span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Главная</a>
+                <a href="#features" class="nav-link">Возможности</a>
+                <a href="#solutions" class="nav-link">Решения</a>
+                <a href="#pricing" class="nav-link">Тарифы</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+            </div>
+            <div class="nav-actions">
+                <a href="Фитнес-центр/auth.html?type=login" class="btn btn-outline">
+                    <i class="fas fa-sign-in-alt"></i> Вход
+                </a>
+                <a href="Фитнес-центр/auth.html?type=register" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Начать бесплатно
+                </a>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Лучшее решение для фитнес-бизнеса 2025</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Умное управление</span>
+                    вашим фитнес-центром
+                </h1>
+                <p class="hero-description">
+                    Полноценная CRM-система, которая автоматизирует все процессы: от записи клиентов до аналитики доходов. 
+                    Увеличьте эффективность вашего бизнеса на 40% уже в первый месяц.
+                </p>
+                <div class="hero-actions">
+                    <a href="Фитнес-центр/auth.html?type=register" class="btn btn-primary btn-lg">
+                        <i class="fas fa-play-circle"></i> Начать 14-дневный триал
+                    </a>
+                    <a href="#features" class="btn btn-ghost btn-lg">
+                        <i class="fas fa-play"></i> Смотреть демо
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Фитнес-центров</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">250k+</span>
+                        <span class="stat-label">Клиентов</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Доступность</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="dashboard-header">
+                        <div class="dashboard-tabs">
+                            <span class="tab active">Дашборд</span>
+                            <span class="tab">Клиенты</span>
+                            <span class="tab">Расписание</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="metric-cards">
+                            <div class="metric-card">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <span class="metric-value">1,245</span>
+                                    <span class="metric-label">Новых клиентов</span>
+                                </div>
+                            </div>
+                            <div class="metric-card">
+                                <i class="fas fa-calendar-check"></i>
+                                <div>
+                                    <span class="metric-value">89%</span>
+                                    <span class="metric-label">Заполненность</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Логотипы клиентов -->
+    <section class="logos-section">
+        <div class="container">
+            <p class="logos-title">Нам доверяют ведущие фитнес-сети</p>
+            <div class="logos-grid">
+                <div class="logo-item">World Class</div>
+                <div class="logo-item">Fitness House</div>
+                <div class="logo-item">Алекс Фитнес</div>
+                <div class="logo-item">ФизКульт</div>
+                <div class="logo-item">Platinum Fitness</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Возможности -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Мощные возможности для роста</h2>
+                <p class="section-subtitle">Все инструменты, которые нужны для успешного управления фитнес-бизнесом</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Интеллектуальное расписание</h3>
+                    <p class="feature-description">
+                        Автоматическое распределение клиентов, умные напоминания, контроль загрузки залов
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Онлайн-запись 24/7</li>
+                        <li><i class="fas fa-check"></i> Автоматические wait-list</li>
+                        <li><i class="fas fa-check"></i> Интеграция с календарями</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <h3 class="feature-title">Продвинутая аналитика</h3>
+                    <p class="feature-description">
+                        Глубокий анализ посещаемости, доходов, удержания клиентов и эффективности тренеров
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Прогнозная аналитика</li>
+                        <li><i class="fas fa-check"></i> KPI тренеров</li>
+                        <li><i class="fas fa-check"></i> ROI маркетинга</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="feature-title">Тренерский портал</h3>
+                    <p class="feature-description">
+                        Специальные инструменты для работы тренеров: планы тренировок, прогресс клиентов, расписание
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Персональные программы</li>
+                        <li><i class="fas fa-check"></i> Трекер прогресса</li>
+                        <li><i class="fas fa-check"></i> Мобильное приложение</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="feature-title">Финансовый контроль</h3>
+                    <p class="feature-description">
+                        Полный контроль над финансами: абонементы, разовые посещения, корпоративные клиенты
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Автоматические списания</li>
+                        <li><i class="fas fa-check"></i> Гибкая система скидок</li>
+                        <li><i class="fas fa-check"></i> Интеграция с эквайрингом</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Мобильные приложения</h3>
+                    <p class="feature-description">
+                        Нативные приложения для iOS и Android для клиентов и сотрудников
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Push-уведомления</li>
+                        <li><i class="fas fa-check"></i> Биометрическая аутентификация</li>
+                        <li><i class="fas fa-check"></i> Офлайн-режим</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Безопасность и надежность</h3>
+                    <p class="feature-description">
+                        Максимальная защита данных клиентов и бизнес-информации
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> SSL шифрование</li>
+                        <li><i class="fas fa-check"></i> Регулярные бэкапы</li>
+                        <li><i class="fas fa-check"></i> Соответствие GDPR</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Решения для разных ролей -->
+    <section id="solutions" class="solutions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Индивидуальные решения для каждой роли</h2>
+                <p class="section-subtitle">Персонализированный опыт работы для всех участников</p>
+            </div>
+
+            <div class="solutions-tabs">
+                <button class="solution-tab active" data-target="client">Для клиентов</button>
+                <button class="solution-tab" data-target="trainer">Для тренеров</button>
+                <button class="solution-tab" data-target="admin">Для администрации</button>
+                <button class="solution-tab" data-target="owner">Для владельцев</button>
+            </div>
+
+            <div class="solutions-content">
+                <div class="solution-panel active" id="client-solution">
+                    <div class="solution-visual">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Клиентский интерфейс">
+                    </div>
+                    <div class="solution-details">
+                        <h3>Удобство для ваших клиентов</h3>
+                        <p>Клиенты получают современный и удобный интерфейс для управления своими тренировками</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Запись на занятия в 1 клик</li>
+                            <li><i class="fas fa-check-circle"></i> История тренировок и прогресс</li>
+                            <li><i class="fas fa-check-circle"></i> Онлайн-оплата и бронирование</li>
+                            <li><i class="fas fa-check-circle"></i> Персональные рекомендации</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="solution-panel" id="trainer-solution">
+                    <div class="solution-visual">
+                        <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?ixlib=rb-1.2.1&auto=format&fit=crop&w-800&q=80" alt="Тренерский интерфейс">
+                    </div>
+                    <div class="solution-details">
+                        <h3>Профессиональные инструменты для тренеров</h3>
+                        <p>Все необходимое для эффективной работы с клиентами и управления расписанием</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Управление расписанием</li>
+                            <li><i class="fas fa-check-circle"></i> Трекер прогресса клиентов</li>
+                            <li><i class="fas fa-check-circle"></i> Персональные программы</li>
+                            <li><i class="fas fa-check-circle"></i> Аналитика эффективности</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цифры и статистика -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">Рост доходов в среднем</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <span class="stat-number">60%</span>
+                        <span class="stat-label">Снижение оттока клиентов</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <span class="stat-number">15ч</span>
+                        <span class="stat-label">Экономия времени в неделю</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-smile"></i>
+                    <div>
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Довольных клиентов</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Готовы преобразовать ваш фитнес-бизнес?</h2>
+                <p>Начните 14-дневный бесплатный пробный период прямо сейчас. Никаких кредитных карт, никаких обязательств.</p>
+                <div class="cta-actions">
+                    <a href="auth.html?type=register" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i> Начать бесплатно
+                    </a>
+                    <a href="#contacts" class="btn btn-ghost btn-lg">
+                        <i class="fas fa-phone"></i> Заказать демо
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer id="contacts" class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Fitness<span class="logo-highlight">CRM</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Ведущая CRM-система для управления фитнес-центрами. Помогаем бизнесу расти с 2020 года.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Продукт</h4>
+                    <a href="#features" class="footer-link">Возможности</a>
+                    <a href="#solutions" class="footer-link">Решения</a>
+                    <a href="#pricing" class="footer-link">Тарифы</a>
+                    <a href="#" class="footer-link">Обновления</a>
+                    <a href="#" class="footer-link">Интеграции</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Ресурсы</h4>
+                    <a href="#" class="footer-link">Блог</a>
+                    <a href="#" class="footer-link">Документация</a>
+                    <a href="#" class="footer-link">Видеоуроки</a>
+                    <a href="#" class="footer-link">API для разработчиков</a>
+                    <a href="#" class="footer-link">Партнерская программа</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Компания</h4>
+                    <a href="#" class="footer-link">О нас</a>
+                    <a href="#" class="footer-link">Карьера</a>
+                    <a href="#" class="footer-link">Контакты</a>
+                    <a href="#" class="footer-link">Политика конфиденциальности</a>
+                    <a href="#" class="footer-link">Условия использования</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Контакты</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Москва, ул. Фитнесная, 15</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (495) 123-45-67</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@fitnesscrm.ru</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 FitnessCRM. Все права защищены.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Карта сайта</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">GDPR</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Административная панель - FitnessCRM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Контейнер административной панели -->
+    <div class="admin-dashboard">
+        <!-- Боковая панель навигации -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-dumbbell"></i>
+                    <h2>Fitness<span>CRM</span></h2>
+                    <span class="admin-badge">Admin</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <img src="https://i.pravatar.cc/100?img=32" alt="Аватар">
+                    </div>
+                    <div class="user-details">
+                        <h3 id="adminName">Администратор</h3>
+                        <p class="user-role">Администратор</p>
+                        <p class="user-status online">Онлайн</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="#dashboard" class="nav-link active" data-page="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Дашборд</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#clients" class="nav-link" data-page="clients">
+                            <i class="fas fa-users"></i>
+                            <span>Клиенты</span>
+                            <span class="badge">24</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#trainers" class="nav-link" data-page="trainers">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Тренеры</span>
+                            <span class="badge">8</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#schedule" class="nav-link" data-page="schedule">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Расписание</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#workouts" class="nav-link" data-page="workouts">
+                            <i class="fas fa-dumbbell"></i>
+                            <span>Занятия</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#bookings" class="nav-link" data-page="bookings">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>Записи</span>
+                            <span class="badge">15</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#finances" class="nav-link" data-page="finances">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Финансы</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#reports" class="nav-link" data-page="reports">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Отчеты</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#settings" class="nav-link" data-page="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Настройки</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <div class="status-indicator online"></div>
+                    <span>Система активна</span>
+                </div>
+                <a href="index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Выйти </span>                        
+                </a>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="admin-main">
+            <!-- Верхняя панель -->
+            <header class="top-bar">
+                <div class="page-title">
+                    <h1 id="pageTitle">Административная панель</h1>
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <span class="breadcrumb-item active">Дашборд</span>
+                    </div>
+                </div>
+                
+                <div class="top-bar-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Поиск по системе..." id="globalSearch">
+                    </div>
+                   
+                    <div class="quick-actions">
+                        <button class="btn btn-primary btn-sm" id="quickAddBtn">
+                            <i class="fas fa-plus"></i> Добавить
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Контейнер страниц -->
+            <div class="pages-container">
+                <!-- Страница 1: Дашборд -->
+                <div id="dashboard-page" class="page active">
+                    <div class="welcome-section">
+                        <div class="welcome-content">
+                            <h2>Добро пожаловать, <span id="adminWelcomeName">Администратор</span>!</h2>
+                            <p>Сегодня <strong id="currentDate"></strong>. За сегодня запланировано <strong id="todayBookings">15</strong> занятий</p>
+                            <div class="welcome-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <span class="stat-value" id="totalClients">245</span>
+                                        <span class="stat-label">Всего клиентов</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <div>
+                                        <span class="stat-value" id="activeBookings">89</span>
+                                        <span class="stat-label">Активных записей</span>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-ruble-sign"></i>
+                                    <div>
+                                        <span class="stat-value" id="monthlyRevenue">325,400</span>
+                                        <span class="stat-label">₽ за месяц</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="welcome-image">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Фитнес зал">
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Статистика посещений -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-chart-bar"></i> Посещаемость за неделю</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="attendance-chart" id="attendanceChart">
+                                    <!-- График будет построен через JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Последние записи -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-history"></i> Последние записи</h3>
+                                <a href="#bookings" class="view-all" data-page="bookings">Все записи →</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="recent-bookings" id="recentBookings">
+                                    <!-- Записи будут загружены через JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Занятия сегодня -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-calendar-day"></i> Занятия сегодня</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="today-workouts" id="todayWorkouts">
+                                    <!-- Занятия будут загружены через JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Системные уведомления -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-exclamation-circle"></i> Системные уведомления</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="system-alerts" id="systemAlerts">
+                                    <!-- Уведомления будут загружены через JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Быстрые действия -->
+                        <div class="dashboard-card quick-actions-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-bolt"></i> Быстрые действия</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary action-btn" data-action="add-client">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Добавить клиента</span>
+                                    </button>
+                                    <button class="btn btn-secondary action-btn" data-action="add-trainer">
+                                        <i class="fas fa-user-tie"></i>
+                                        <span>Добавить тренера</span>
+                                    </button>
+                                    <button class="btn btn-secondary action-btn" data-action="create-workout">
+                                        <i class="fas fa-dumbbell"></i>
+                                        <span>Создать занятие</span>
+                                    </button>
+                                    <button class="btn btn-secondary action-btn" data-action="generate-report">
+                                        <i class="fas fa-file-export"></i>
+                                        <span>Создать отчет</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 2: Клиенты -->
+                <div id="clients-page" class="page">
+                    <div class="page-header">
+                        <h2>Управление клиентами</h2>
+                        <div class="header-controls">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="clientSearch" placeholder="Поиск клиентов...">
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="btn btn-primary" id="addClientBtn">
+                                    <i class="fas fa-plus"></i> Добавить клиента
+                                </button>
+                                <button class="btn btn-secondary" id="exportClientsBtn">
+                                    <i class="fas fa-download"></i> Экспорт
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clients-container">
+                        <div class="clients-table-container">
+                            <table class="data-table" id="clientsTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Имя</th>
+                                        <th>Email</th>
+                                        <th>Телефон</th>
+                                        <th>Абонемент</th>
+                                        <th>Статус</th>
+                                        <th>Последнее посещение</th>
+                                        <th>Действия</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="clientsList">
+                                    <!-- Клиенты будут загружены через JS -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="clients-stats">
+                            <div class="stats-card">
+                                <h3>Статистика клиентов</h3>
+                                <div class="stats-content">
+                                    <div class="stat-item">
+                                        <span class="stat-number">245</span>
+                                        <span class="stat-label">Всего клиентов</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">89%</span>
+                                        <span class="stat-label">Активные</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">15</span>
+                                        <span class="stat-label">Новых в этом месяце</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 3: Тренеры -->
+                <div id="trainers-page" class="page">
+                    <div class="page-header">
+                        <h2>Управление тренерами</h2>
+                        <div class="header-controls">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="trainerSearch" placeholder="Поиск тренеров...">
+                            </div>
+                            <button class="btn btn-primary" id="addTrainerBtn">
+                                <i class="fas fa-plus"></i> Добавить тренера
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="trainers-container">
+                        <div class="trainers-grid" id="trainersGrid">
+                            <!-- Тренеры будут загружены через JS -->
+                        </div>
+
+                        <div class="trainer-schedule">
+                            <h3>Расписание тренеров</h3>
+                            <div class="schedule-view" id="trainerScheduleView">
+                                <!-- Расписание будет загружено через JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 4: Расписание -->
+                <div id="schedule-page" class="page">
+                    <div class="page-header">
+                        <h2>Управление расписанием</h2>
+                        <div class="header-controls">
+                            <div class="date-picker">
+                                <input type="date" id="scheduleDate" value="">
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="btn btn-primary" id="addScheduleItemBtn">
+                                    <i class="fas fa-plus"></i> Добавить занятие
+                                </button>
+                                <button class="btn btn-secondary" id="copyWeekBtn">
+                                    <i class="fas fa-copy"></i> Копировать неделю
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-management">
+                        <div class="calendar-view" id="calendarView">
+                            <!-- Календарь будет загружен через JS -->
+                        </div>
+
+                        <div class="schedule-controls">
+                            <div class="controls-section">
+                                <h3>Быстрые действия</h3>
+                                <div class="quick-schedule-actions">
+                                    <button class="btn btn-secondary" data-action="add-group">
+                                        <i class="fas fa-users"></i> Групповое занятие
+                                    </button>
+                                    <button class="btn btn-secondary" data-action="add-personal">
+                                        <i class="fas fa-user"></i> Персональная тренировка
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 5: Занятия -->
+                <div id="workouts-page" class="page">
+                    <div class="page-header">
+                        <h2>Управление занятиями</h2>
+                        <div class="header-controls">
+                            <div class="filter-tags">
+                                <button class="tag-btn active" data-type="all">Все</button>
+                                <button class="tag-btn" data-type="group">Групповые</button>
+                                <button class="tag-btn" data-type="personal">Персональные</button>
+                                <button class="tag-btn" data-type="yoga">Йога</button>
+                                <button class="tag-btn" data-type="fitness">Фитнес</button>
+                            </div>
+                            <button class="btn btn-primary" id="createWorkoutBtn">
+                                <i class="fas fa-plus"></i> Создать занятие
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="workouts-management">
+                        <div class="workouts-list" id="workoutsList">
+                            <!-- Занятия будут загружены через JS -->
+                        </div>
+
+                        <div class="workout-details" id="workoutDetailsPanel">
+                            <div class="details-placeholder">
+                                <i class="fas fa-dumbbell"></i>
+                                <p>Выберите занятие для просмотра деталей</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 6: Записи -->
+                <div id="bookings-page" class="page">
+                    <div class="page-header">
+                        <h2>Управление записями</h2>
+                        <div class="header-controls">
+                            <div class="booking-tabs">
+                                <button class="booking-tab active" data-status="all">Все</button>
+                                <button class="booking-tab" data-status="pending">Ожидают</button>
+                                <button class="booking-tab" data-status="confirmed">Подтверждены</button>
+                                <button class="booking-tab" data-status="cancelled">Отменены</button>
+                            </div>
+                            <button class="btn btn-primary" id="createBookingBtn">
+                                <i class="fas fa-plus"></i> Создать запись
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bookings-management">
+                        <div class="bookings-table-container">
+                            <table class="data-table" id="bookingsTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Клиент</th>
+                                        <th>Занятие</th>
+                                        <th>Тренер</th>
+                                        <th>Дата и время</th>
+                                        <th>Статус</th>
+                                        <th>Стоимость</th>
+                                        <th>Действия</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookingsList">
+                                    <!-- Записи будут загружены через JS -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="bookings-summary">
+                            <div class="summary-card">
+                                <h3>Сводка за сегодня</h3>
+                                <div class="summary-content">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Всего записей:</span>
+                                        <span class="summary-value">15</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Подтверждено:</span>
+                                        <span class="summary-value">12</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Ожидают:</span>
+                                        <span class="summary-value">3</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Ожидаемый доход:</span>
+                                        <span class="summary-value">45,000 ₽</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 7: Финансы -->
+                <div id="finances-page" class="page">
+                    <div class="page-header">
+                        <h2>Финансовый отчет</h2>
+                        <div class="header-controls">
+                            <div class="date-range">
+                                <input type="date" id="startDate" value="">
+                                <span>по</span>
+                                <input type="date" id="endDate" value="">
+                            </div>
+                            <button class="btn btn-primary" id="generateReportBtn">
+                                <i class="fas fa-file-export"></i> Экспорт отчета
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="finances-container">
+                        <div class="revenue-stats">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <h3>Доход за месяц</h3>
+                                    <span class="stat-trend positive">+12%</span>
+                                </div>
+                                <div class="stat-body">
+                                    <span class="stat-amount">325,400 ₽</span>
+                                    <div class="stat-chart" id="revenueChart"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <h3>Новые клиенты</h3>
+                                    <span class="stat-trend positive">+8%</span>
+                                </div>
+                                <div class="stat-body">
+                                    <span class="stat-amount">15</span>
+                                    <div class="stat-chart" id="clientsChart"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <h3>Средний чек</h3>
+                                    <span class="stat-trend negative">-3%</span>
+                                </div>
+                                <div class="stat-body">
+                                    <span class="stat-amount">4,200 ₽</span>
+                                    <div class="stat-chart" id="avgCheckChart"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="transactions-table">
+                            <h3>Последние транзакции</h3>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Дата</th>
+                                        <th>Клиент</th>
+                                        <th>Тип</th>
+                                        <th>Сумма</th>
+                                        <th>Статус</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transactionsList">
+                                    <!-- Транзакции будут загружены через JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 8: Отчеты -->
+                <div id="reports-page" class="page">
+                    <div class="page-header">
+                        <h2>Отчеты и аналитика</h2>
+                        <div class="header-controls">
+                            <select id="reportType" class="report-select">
+                                <option value="attendance">Посещаемость</option>
+                                <option value="revenue">Доходы</option>
+                                <option value="clients">Клиенты</option>
+                                <option value="trainers">Тренеры</option>
+                            </select>
+                            <button class="btn btn-primary" id="generateReportBtn">
+                                <i class="fas fa-chart-bar"></i> Сгенерировать отчет
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="reports-container">
+                        <div class="report-filters">
+                            <div class="filter-section">
+                                <h3>Параметры отчета</h3>
+                                <div class="filter-group">
+                                    <label>Период:</label>
+                                    <select id="reportPeriod">
+                                        <option value="week">Неделя</option>
+                                        <option value="month" selected>Месяц</option>
+                                        <option value="quarter">Квартал</option>
+                                        <option value="year">Год</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-content">
+                            <div class="report-chart" id="reportChart">
+                                <!-- График отчета будет построен через JS -->
+                            </div>
+
+                            <div class="report-data">
+                                <h3>Данные отчета</h3>
+                                <div class="data-table-container" id="reportDataTable">
+                                    <!-- Данные отчета будут загружены через JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Страница 9: Настройки -->
+                <div id="settings-page" class="page">
+                    <div class="page-header">
+                        <h2>Настройки системы</h2>
+                        <div class="header-controls">
+                            <button class="btn btn-primary" id="saveSettingsBtn">
+                                <i class="fas fa-save"></i> Сохранить изменения
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="settings-container">
+                        <div class="settings-tabs">
+                            <button class="settings-tab active" data-tab="general">Основные</button>
+                            <button class="settings-tab" data-tab="notifications">Уведомления</button>
+                            <button class="settings-tab" data-tab="security">Безопасность</button>
+                            <button class="settings-tab" data-tab="integrations">Интеграции</button>
+                        </div>
+
+                        <div class="settings-content">
+                            <div id="general-settings" class="settings-section active">
+                                <h3>Основные настройки</h3>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <label>Название фитнес-центра:</label>
+                                        <input type="text" id="gymName" value="FitnessCRM" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Часы работы:</label>
+                                        <div class="time-inputs">
+                                            <input type="time" id="openTime" value="08:00" class="form-control">
+                                            <span>до</span>
+                                            <input type="time" id="closeTime" value="22:00" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Валюта:</label>
+                                        <select id="currency" class="form-control">
+                                            <option value="RUB">Рубль (₽)</option>
+                                            <option value="USD">Доллар ($)</option>
+                                            <option value="EUR">Евро (€)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="notification-settings" class="settings-section">
+                                <h3>Настройки уведомлений</h3>
+                                <div class="settings-form">
+                                    <div class="checkbox-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox" checked>
+                                            <span>Уведомления о новых записях</span>
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" checked>
+                                            <span>Напоминания клиентам</span>
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" checked>
+                                            <span>Финансовые отчеты</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="security-settings" class="settings-section">
+                                <h3>Настройки безопасности</h3>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <label>Требовать подтверждение email:</label>
+                                        <input type="checkbox" id="emailVerification" checked>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Автоматический выход через (минут):</label>
+                                        <input type="number" id="autoLogout" value="30" min="5" max="240" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="integration-settings" class="settings-section">
+                                <h3>Интеграции</h3>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <label>Интеграция с платежной системой:</label>
+                                        <select id="paymentSystem" class="form-control">
+                                            <option value="yookassa">ЮKassa</option>
+                                            <option value="cloudpayments">CloudPayments</option>
+                                            <option value="tinkoff">Тинькофф</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Модальные окна -->
+        <div id="addClientModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Добавить нового клиента</h2>
+                <form id="addClientForm">
+                    <!-- Форма будет заполнена через JS -->
+                </form>
+            </div>
+        </div>
+
+        <div id="addTrainerModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Добавить нового тренера</h2>
+                <form id="addTrainerForm">
+                    <!-- Форма будет заполнена через JS -->
+                </form>
+            </div>
+        </div>
+
+        <div id="notificationModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Уведомления системы</h2>
+                <div id="notificationsList">
+                    <!-- Уведомления будут загружены через JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
